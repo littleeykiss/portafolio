@@ -492,12 +492,8 @@ export function App() {
 									</div>
 
 									<div className="card-terminal border-l-4 border-l-[var(--term-accent)] space-y-4 bg-[#070e0a]">
-										<h4 className="text-lg font-bold text-terminal-glow">
-											¿Interesado en mi perfil para proyectos o roles de ingeniería?
-										</h4>
-										<p className="text-xs sm:text-sm text-[var(--term-dim)] leading-relaxed">
-											Disponible para colaborar en arquitecturas de backend resilientes (Java, Spring Boot, Microservicios), integración de APIs y desarrollo full-stack. Contáctame por correo o llamada telefónica directa:
-										</p>
+
+
 
 										<div className="pt-2 flex flex-wrap gap-3">
 											<a
@@ -551,12 +547,6 @@ export function App() {
 						{/* Footer del modal */}
 						<div className="px-4 py-2.5 bg-[#070e0a] border-t border-[var(--term-border)] flex items-center justify-between text-xs text-[var(--term-dim)] select-none">
 							<span>Status: 200 OK</span>
-							<button
-								onClick={() => setActiveModal(null)}
-								className="text-[var(--term-accent)] hover:underline text-xs"
-							>
-								[Cerrar ventana]
-							</button>
 						</div>
 					</div>
 				</div>
