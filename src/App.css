@@ -7,7 +7,7 @@
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
-	padding: 12px 16px;
+	padding: 8px 12px;
 	font-family: var(--font-mono);
 	background: #070d09;
 	border: 1px solid var(--term-border);
@@ -32,7 +32,7 @@
 
 .nav-card-btn .nav-title {
 	color: var(--term-glow);
-	font-size: 13px;
+	font-size: 18px;
 	font-weight: 600;
 	letter-spacing: 0.03em;
 }
@@ -155,8 +155,13 @@
 }
 
 @keyframes fadeIn {
-	from { opacity: 0; }
-	to { opacity: 1; }
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
 }
 
 @keyframes slideUp {
@@ -164,6 +169,7 @@
 		opacity: 0;
 		transform: scale(0.97) translateY(12px);
 	}
+
 	to {
 		opacity: 1;
 		transform: scale(1) translateY(0);

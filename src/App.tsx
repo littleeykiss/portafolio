@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import {
 	Mail,
 	Phone,
-	MapPin,
 	Terminal as TerminalIcon,
 	Cpu,
 	Briefcase,
@@ -20,7 +19,6 @@ import {
 } from 'lucide-react';
 import { PORTFOLIO_DATA } from './data';
 import { TypewriterText } from './components/TypewriterText';
-import { InteractiveTerminal } from './components/InteractiveTerminal';
 import { GithubIcon, LinkedinIcon } from './components/SocialIcons';
 import './App.css';
 
@@ -145,32 +143,7 @@ export function App() {
 					{/* COLUMNA IZQUIERDA (5 cols): Consola interactiva + Accesos */}
 					<div className="lg:col-span-5 space-y-6">
 
-						{/* Enlaces a perfiles externos */}
-						<div className="p-4 border border-[var(--term-border)] rounded-md bg-[#070e0a] flex items-center justify-between">
-							<div className="flex items-center gap-3">
-								<a
-									href="https://github.com"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="p-2 border border-[var(--term-border)] rounded hover:border-[var(--term-accent)] hover:text-[var(--term-accent)] text-[var(--term-text)] transition-all bg-black"
-									title="GitHub"
-								>
-									<GithubIcon size={16} />
-								</a>
-								<a
-									href="https://linkedin.com"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="p-2 border border-[var(--term-border)] rounded hover:border-[var(--term-accent)] hover:text-[var(--term-accent)] text-[var(--term-text)] transition-all bg-black"
-									title="LinkedIn"
-								>
-									<LinkedinIcon size={16} />
-								</a>
-								<span className="text-xs text-[var(--term-dim)]">
-									// CDMX, MÉXICO
-								</span>
-							</div>
-						</div>
+
 					</div>
 
 					{/* COLUMNA DERECHA (7 cols): Menú de Secciones Interactivas con Modales */}
@@ -503,10 +476,10 @@ export function App() {
 												<Phone size={14} /> LLAMAR: {PORTFOLIO_DATA.personal.phone}
 											</a>
 											<a
-												href="https://linkedin.com"
+												href="https://www.linkedin.com/in/egsanchezl/"
 												target="_blank"
 												rel="noopener noreferrer"
-												className="inline-flex items-center gap-2 px-4 py-2.5 border border-[var(--term-border)] hover:border-[var(--term-accent)] text-[var(--term-glow)] hover:bg-[#070e0a] text-xs rounded transition-all"
+												className="inline-flex items-center gap-2 px-4 py-2.5 border border-[var(--term-border)] hover:border-[var(--term-accent)] text-[var(--term-glow)] hover:bg-[#070e0a] text-xs font-bold rounded transition-all"
 											>
 												<ExternalLink size={14} /> LINKEDIN
 											</a>

@@ -38,7 +38,7 @@ export const PORTFOLIO_DATA = {
 			{ name: "Email", url: "mailto:ersalo123@gmail.com", icon: "Mail" },
 			{ name: "Teléfono", url: "tel:5652162711", icon: "Phone" },
 			{ name: "GitHub", url: "https://github.com", icon: "Github" },
-			{ name: "LinkedIn", url: "https://linkedin.com", icon: "Linkedin" }
+			{ name: "LinkedIn", url: "https://www.linkedin.com/in/egsanchezl/", icon: "Linkedin" }
 		]
 	},
 	technicalSkills: [
