@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;600;700&display=swap');
+
+:root {
+	/* Palette - Default: Amber Phosphorus */
+	--term-bg: #090a0f;
+	--term-panel-bg: rgba(14, 17, 24, 0.75);
+	--term-panel-hover: rgba(23, 28, 40, 0.85);
+	--term-header-bg: #12151e;
+	--term-border: #1e2638;
+	--term-border-hover: #f59e0b;
+	--term-text: #94a3b8;
+	--term-glow: #fef3c7;
+	--term-dim: #64748b;
+	--term-accent: #f59e0b;
+	--term-accent-rgb: 245, 158, 11;
+	--term-tag-bg: rgba(245, 158, 11, 0.12);
+	--term-tag-text: #fbbf24;
+	--term-tag-border: rgba(245, 158, 11, 0.3);
+
+	--font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Green Matrix Theme */
+[data-theme='green'] {
+	--term-border-hover: #10b981;
+	--term-glow: #d1fae5;
+	--term-accent: #10b981;
+	--term-accent-rgb: 16, 185, 129;
+	--term-tag-bg: rgba(16, 185, 129, 0.12);
+	--term-tag-text: #34d399;
+	--term-tag-border: rgba(16, 185, 129, 0.3);
+}
+
+/* Cyan Cyberpunk Theme */
+[data-theme='cyan'] {
+	--term-border-hover: #06b6d4;
+	--term-glow: #cffafe;
+	--term-accent: #06b6d4;
+	--term-accent-rgb: 6, 182, 212;
+	--term-tag-bg: rgba(6, 182, 212, 0.12);
+	--term-tag-text: #22d3ee;
+	--term-tag-border: rgba(6, 182, 212, 0.3);
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+	background-color: var(--term-bg);
+	color: var(--term-text);
+	font-family: var(--font-mono);
+}
+
+body {
+	min-height: 100vh;
+	overflow-x: hidden;
+	background-color: var(--term-bg);
+	position: relative;
+}
+
+/* Retro Grid Background Pattern */
+.bg-grid-pattern {
+	background-size: 40px 40px;
+	background-image: 
+		linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+		linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* CRT Scanlines Overlay */
+.crt-overlay::before {
+	content: " ";
+	display: block;
+	position: fixed;
+	top: 0; left: 0; bottom: 0; right: 0;
+	background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.28) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+	z-index: 999;
+	background-size: 100% 3px, 6px 100%;
+	pointer-events: none;
+}
+
+/* CRT Vignette flicker and curvature subtlety */
+.crt-overlay::after {
+	content: " ";
+	display: block;
+	position: fixed;
+	top: 0; left: 0; bottom: 0; right: 0;
+	background: radial-gradient(circle at center, transparent 65%, rgba(0, 0, 0, 0.6) 100%);
+	pointer-events: none;
+	z-index: 998;
+}
+
+/* Radial Mouse Spotlight Glow */
+.mouse-spotlight {
+	pointer-events: none;
+	position: fixed;
+	inset: 0;
+	z-index: 30;
+	transition: opacity 0.3s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+	width: 6px;
+}
+::-webkit-scrollbar-track {
+	background: var(--term-bg);
+}
+::-webkit-scrollbar-thumb {
+	background: var(--term-border);
+	border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: var(--term-accent);
+}
+
+/* Retro glowing text */
+.text-glow {
+	text-shadow: 0 0 10px rgba(var(--term-accent-rgb), 0.45);
+}
+
+/* Blinking cursor */
+@keyframes blink {
+	0%, 49% { opacity: 1; }
+	50%, 100% { opacity: 0; }
+}
+
+.terminal-cursor {
+	display: inline-block;
+	animation: blink 1s infinite;
+}
+
+/* Utilities for flex and grid alignment */
+.container-layout {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 24px;
+}
+
+@media (min-width: 1024px) {
+	.container-layout {
+		padding: 0 48px;
+	}
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
