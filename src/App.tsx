@@ -226,13 +226,7 @@ export function App() {
 				<div className="container-layout space-y-6">
 					<div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--term-dim)]">
 						<div className="flex items-center gap-4">
-							<button
-								onClick={() => setActiveModal('contact')}
-								className="text-[var(--term-accent)] hover:underline flex items-center gap-1 font-semibold"
-							>
-								<Mail size={13} /> 06. Contacto Directo
-							</button>
-							<span>|</span>
+
 							<button
 								onClick={() => setActiveModal('privacy')}
 								className="hover:text-[var(--term-accent)] transition-colors flex items-center gap-1"
