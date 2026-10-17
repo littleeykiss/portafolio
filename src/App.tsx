@@ -104,22 +104,6 @@ export function App() {
 								<MapPin size={13} className="text-[var(--term-accent)]" />
 								<span>{PORTFOLIO_DATA.personal.location}</span>
 							</div>
-							<span className="text-[var(--term-border)] hidden sm:inline">|</span>
-							<a 
-								href={`mailto:${PORTFOLIO_DATA.personal.email}`}
-								className="flex items-center gap-1.5 hover:text-[var(--term-accent)] transition-colors"
-							>
-								<Mail size={13} className="text-[var(--term-accent)]" />
-								<span>{PORTFOLIO_DATA.personal.email}</span>
-							</a>
-							<span className="text-[var(--term-border)] hidden sm:inline">|</span>
-							<a 
-								href={`tel:${PORTFOLIO_DATA.personal.phone}`}
-								className="flex items-center gap-1.5 hover:text-[var(--term-accent)] transition-colors"
-							>
-								<Phone size={13} className="text-[var(--term-accent)]" />
-								<span>{PORTFOLIO_DATA.personal.phone}</span>
-							</a>
 						</div>
 					</div>
 				</div>
