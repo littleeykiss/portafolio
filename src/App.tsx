@@ -199,7 +199,7 @@ export function App() {
 				<div className="container-layout space-y-6">
 					<div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--term-dim)]">
 						<div className="flex items-center gap-4">
-
+							<p>...</p>
 							<button
 								onClick={() => setActiveModal('privacy')}
 								className="hover:text-[var(--term-accent)] transition-colors flex items-center gap-1"
@@ -208,7 +208,7 @@ export function App() {
 							</button>
 						</div>
 
-						<p>
+						<p className="mt-2">
 							&copy; {new Date().getFullYear()} {PORTFOLIO_DATA.personal.name}. Terminal Portfolio OS.
 						</p>
 					</div>
