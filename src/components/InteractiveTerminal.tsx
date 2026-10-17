@@ -3,15 +3,15 @@ import type { FormEvent } from 'react';
 import { Terminal, Send, Trash2 } from 'lucide-react';
 
 interface InteractiveTerminalProps {
-	onNavigate: (sectionId: string) => void;
+	onOpenSection: (sectionId: string) => void;
 }
 
-export const InteractiveTerminal = ({ onNavigate }: InteractiveTerminalProps) => {
+export const InteractiveTerminal = ({ onOpenSection }: InteractiveTerminalProps) => {
 	const [input, setInput] = useState('');
 	const [history, setHistory] = useState<Array<{ text: string; type: 'cmd' | 'output' | 'error' | 'success' }>>([
 		{ text: '═════════════════════════════════════════════════════════════════════════', type: 'output' },
 		{ text: ' Erik Gpe. Sánchez López // Terminal CLI Emulator (Bash v5.2)', type: 'success' },
-		{ text: ' Type "help" or "ls" to view all available interactive commands.', type: 'output' },
+		{ text: ' Escribe "help", "ls" o "open <seccion>" para abrir las ventanas modales.', type: 'output' },
 		{ text: '═════════════════════════════════════════════════════════════════════════', type: 'output' }
 	]);
 	const bottomRef = useRef<HTMLDivElement>(null);
@@ -31,86 +31,60 @@ export const InteractiveTerminal = ({ onNavigate }: InteractiveTerminalProps) =>
 		switch (cmd) {
 			case 'help':
 				newHistory.push({
-					text: `Available commands:
-  cat <section>     Read section: about, skills, exp, education, contact
-  goto <section>    Navigate directly to section on page
-  whoami            Print engineer overview
-  skills            Print technical stack matrix
-  exp               Print career timeline & positions
-  contact           Print email, phone, location & profiles
-  ls                List readable sections and files
-  clear, cls        Clear console buffer`,
+					text: `COMANDOS DISPONIBLES:
+  open <seccion>    Abre modal: about, skills, exp, competencies, education, contact
+  cat <seccion>     Alias de open para desplegar contenido en ventana
+  ls                Lista las secciones interactivas disponibles
+  whoami            Información sintetizada del perfil
+  clear, cls        Limpia el buffer de la consola`,
 					type: 'output'
 				});
 				break;
 
 			case 'ls':
 				newHistory.push({
-					text: `drwxr-xr-x 01_sintesis_profesional/
-drwxr-xr-x 02_conocimientos_tecnicos/
-drwxr-xr-x 03_experiencia_laboral/
-drwxr-xr-x 04_competencias/
-drwxr-xr-x 05_estudios_idiomas/
--rw-r--r-- 06_contacto_directo.txt
--rw-r--r-- aviso_privacidad.txt`,
+					text: `drwxr-xr-x [01] about/          (Síntesis Profesional)
+drwxr-xr-x [02] skills/         (Conocimientos Técnicos)
+drwxr-xr-x [03] exp/            (Experiencia Laboral)
+drwxr-xr-x [04] competencies/   (Competencias Clave)
+drwxr-xr-x [05] education/      (Estudios e Idiomas)
+-rw-r--r-- [06] contact.txt     (Contacto Directo)`,
 					type: 'output'
 				});
 				break;
 
 			case 'whoami':
 				newHistory.push({
-					text: `Erik Guadalupe Sánchez López - Ingeniero en Sistemas / Senior Full-Stack (+6 años de exp). Especialista en Backend Java, Spring Boot, Microservicios y Frontend moderno.`,
+					text: `Erik Guadalupe Sánchez López - Ingeniero en Sistemas (+6 años exp). Especialista Backend Java, Spring Boot, Microservicios y Frontend moderno.`,
 					type: 'success'
 				});
 				break;
 
-			case 'skills':
-				newHistory.push({
-					text: `• Backend: Java, Spring Boot, Spring Batch, JPA, REST APIs, Microservicios
-• Frontend: React, Angular, VueJS, TypeScript, Tailwind/CSS
-• Bases de datos: Oracle PL/SQL, PostgreSQL, Query Tuning
-• DevOps/Tools: Docker, Jenkins, SonarQube, Bitbucket, Azure, JUnit`,
-					type: 'output'
-				});
-				onNavigate('skills');
-				break;
-
-			case 'exp':
-				newHistory.push({
-					text: `• AT&T - Ing. Desarrollo (Microservicios, APIs, Oracle, Java)
-• Santander / Bside - Consultor Sr. (Microservicios, Spring Boot, Apigee)
-• Pluxee - Especialista de Desarrollo (Java, Spring, Angular)
-• Banco Azteca - Desarrollador (Sistemas bancarios críticos)
-• Totalplay / AFORE Coppel - Desarrollo & Soporte`,
-					type: 'output'
-				});
-				onNavigate('experience');
-				break;
-
+			case 'open':
 			case 'cat':
 			case 'goto': {
 				const target = args[0];
 				if (target === 'about' || target === 'sintesis' || target === '01') {
-					onNavigate('about');
-					newHistory.push({ text: `Viewing [01. Síntesis Profesional]...`, type: 'success' });
+					onOpenSection('about');
+					newHistory.push({ text: `Abriendo modal [01. Síntesis Profesional]...`, type: 'success' });
 				} else if (target === 'skills' || target === 'tecnicos' || target === '02') {
-					onNavigate('skills');
-					newHistory.push({ text: `Viewing [02. Conocimientos Técnicos]...`, type: 'success' });
+					onOpenSection('skills');
+					newHistory.push({ text: `Abriendo modal [02. Conocimientos Técnicos]...`, type: 'success' });
 				} else if (target === 'exp' || target === 'experience' || target === '03') {
-					onNavigate('experience');
-					newHistory.push({ text: `Viewing [03. Experiencia Laboral]...`, type: 'success' });
-				} else if (target === 'competencies' || target === '04') {
-					onNavigate('competencies');
-					newHistory.push({ text: `Viewing [04. Competencias Clave]...`, type: 'success' });
-				} else if (target === 'education' || target === '05') {
-					onNavigate('education');
-					newHistory.push({ text: `Viewing [05. Formación y Educación]...`, type: 'success' });
-				} else if (target === 'contact' || target === '06') {
-					onNavigate('contact');
-					newHistory.push({ text: `Viewing [06. Contacto Directo]...`, type: 'success' });
+					onOpenSection('experience');
+					newHistory.push({ text: `Abriendo modal [03. Experiencia Laboral]...`, type: 'success' });
+				} else if (target === 'competencies' || target === 'competencias' || target === '04') {
+					onOpenSection('competencies');
+					newHistory.push({ text: `Abriendo modal [04. Competencias Clave]...`, type: 'success' });
+				} else if (target === 'education' || target === 'estudios' || target === '05') {
+					onOpenSection('education');
+					newHistory.push({ text: `Abriendo modal [05. Formación y Educación]...`, type: 'success' });
+				} else if (target === 'contact' || target === 'contacto' || target === '06') {
+					onOpenSection('contact');
+					newHistory.push({ text: `Abriendo modal [06. Contacto Directo]...`, type: 'success' });
 				} else {
 					newHistory.push({
-						text: `Section "${target || ''}" not found. Try: about, skills, exp, competencies, education, contact`,
+						text: `Sección no reconocida. Opciones: about, skills, exp, competencies, education, contact`,
 						type: 'error'
 					});
 				}
@@ -118,20 +92,23 @@ drwxr-xr-x 05_estudios_idiomas/
 			}
 
 			case 'about':
-				onNavigate('about');
-				newHistory.push({ text: `Erik Sánchez: Ingeniero en Sistemas (+6 años exp en desarrollo Full-Stack).`, type: 'output' });
+				onOpenSection('about');
+				newHistory.push({ text: `Desplegando modal de Síntesis...`, type: 'success' });
+				break;
+
+			case 'skills':
+				onOpenSection('skills');
+				newHistory.push({ text: `Desplegando modal de Habilidades...`, type: 'success' });
+				break;
+
+			case 'exp':
+				onOpenSection('experience');
+				newHistory.push({ text: `Desplegando modal de Experiencia...`, type: 'success' });
 				break;
 
 			case 'contact':
-				onNavigate('contact');
-				newHistory.push({
-					text: `[CONTACT INFO]
-Email: ersalo123@gmail.com
-Teléfono: 5652162711
-Ubicación: Ciudad de México, México
-LinkedIn: linkedin.com/in/erik-sanchez`,
-					type: 'success'
-				});
+				onOpenSection('contact');
+				newHistory.push({ text: `Desplegando modal de Contacto...`, type: 'success' });
 				break;
 
 			case 'clear':
@@ -141,7 +118,7 @@ LinkedIn: linkedin.com/in/erik-sanchez`,
 				return;
 
 			default:
-				newHistory.push({ text: `bash: command not found: ${cmd}. Type "help" for command list.`, type: 'error' });
+				newHistory.push({ text: `bash: comando no encontrado: ${cmd}. Escribe "help".`, type: 'error' });
 				break;
 		}
 
@@ -158,24 +135,22 @@ LinkedIn: linkedin.com/in/erik-sanchez`,
 					<span className="term-window-dot bg-yellow-500/80"></span>
 					<span className="term-window-dot bg-green-500/80"></span>
 					<span className="text-[var(--term-glow)] font-bold ml-1 flex items-center gap-1">
-						<Terminal size={12} className="text-[var(--term-accent)]" /> bash - 80x24
+						<Terminal size={12} className="text-[var(--term-accent)]" /> bash - 80x24 (Interactivo)
 					</span>
 				</div>
-				<div className="flex items-center gap-2">
-					<button
-						type="button"
-						onClick={() => setHistory([])}
-						className="text-[var(--term-dim)] hover:text-red-400 flex items-center gap-1 transition-colors"
-						title="Limpiar consola (clear)"
-					>
-						<Trash2 size={11} /> clear
-					</button>
-				</div>
+				<button
+					type="button"
+					onClick={() => setHistory([])}
+					className="text-[var(--term-dim)] hover:text-red-400 flex items-center gap-1 transition-colors"
+					title="Limpiar consola (clear)"
+				>
+					<Trash2 size={11} /> clear
+				</button>
 			</div>
 
 			{/* Contenedor de logs con auto-scroll */}
 			<div className="p-3.5 bg-black/95">
-				<div className="max-h-56 overflow-y-auto space-y-1 scrollbar-thin text-xs mb-3 font-mono leading-relaxed">
+				<div className="max-h-48 overflow-y-auto space-y-1 scrollbar-thin text-xs mb-3 font-mono leading-relaxed">
 					{history.map((item, idx) => (
 						<div
 							key={idx}
@@ -202,8 +177,8 @@ LinkedIn: linkedin.com/in/erik-sanchez`,
 						type="text"
 						value={input}
 						onChange={(e) => setInput(e.target.value)}
-						placeholder="help, whoami, skills, exp, contact..."
-						className="flex-1 bg-transparent border-none outline-none text-[var(--term-glow)] placeholder-[var(--term-dim)] font-mono text-xs caret-[var(--term-accent)]"
+						placeholder="help, open skills, exp, contact..."
+						className="flex-1 bg-transparent border-none outline-none text-[var(--term-glow)] placeholder-[var(--term-muted)] font-mono text-xs caret-[var(--term-accent)]"
 						autoComplete="off"
 						spellCheck="false"
 					/>

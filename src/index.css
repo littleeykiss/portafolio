@@ -1,22 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
 
 :root {
-	/* jQuery Terminal Classic Theme: Solid Black Background, Sharp Terminal Green, High Contrast */
-	--term-bg: #000000;
-	--term-panel-bg: #050806;
-	--term-panel-hover: #0a110d;
-	--term-header-bg: #0d140f;
-	--term-border: #143820;
+	/* Palette - Terminal Hacker Pro: Fondo negro puro, verde fósforo nítido, texto claro legible */
+	--term-bg: #030704;
+	--term-panel-bg: #070d09;
+	--term-panel-hover: #0c1610;
+	--term-header-bg: #09120c;
+	--term-border: #163622;
 	--term-border-hover: #00ff66;
 	--term-border-active: #00ff66;
-	--term-text: #8be4a7;
-	--term-glow: #e6ffed;
-	--term-dim: #3a754c;
-	--term-accent: #00ff66;
+
+	/* Tipografía y Jerarquía de Colores para máxima legibilidad */
+	--term-glow: #ffffff;            /* Blanco puro brillante para títulos principales */
+	--term-accent: #00ff66;          /* Verde terminal brillante para comandos y tags */
 	--term-accent-rgb: 0, 255, 102;
-	--term-tag-bg: rgba(0, 255, 102, 0.08);
-	--term-tag-text: #00ff66;
-	--term-tag-border: #1a4d2c;
+	--term-text: #d6f2df;            /* Verde menta muy claro / crema para lectura cómoda */
+	--term-dim: #7da88a;             /* Texto secundario de buen contraste legible */
+	--term-muted: #4e775a;           /* Metadatos y prompts discretos */
+
+	--term-tag-bg: rgba(0, 255, 102, 0.1);
+	--term-tag-text: #39ff84;
+	--term-tag-border: #1b4d2c;
 
 	--font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
@@ -45,9 +49,9 @@ body {
 
 /* Subtle Matrix/Terminal Scanline Grid */
 .bg-grid-pattern {
-	background-color: #000000;
+	background-color: #030704;
 	background-size: 100% 4px;
-	background-image: linear-gradient(to bottom, rgba(0, 255, 102, 0.015) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 255, 102, 0.02) 50%, transparent 50%);
 }
 
 /* Custom Scrollbar - Terminal style */
@@ -56,11 +60,11 @@ body {
 	height: 6px;
 }
 ::-webkit-scrollbar-track {
-	background: #000000;
+	background: #030704;
 }
 ::-webkit-scrollbar-thumb {
-	background: #143820;
-	border-radius: 2px;
+	background: #163622;
+	border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
 	background: var(--term-accent);
@@ -73,7 +77,7 @@ body {
 
 .text-terminal-glow {
 	color: var(--term-glow);
-	text-shadow: 0 0 4px rgba(0, 255, 102, 0.4);
+	text-shadow: 0 0 8px rgba(0, 255, 102, 0.35);
 }
 
 /* Terminal Inverted Selection / Cursor */
@@ -85,10 +89,10 @@ body {
 .terminal-cursor-block {
 	display: inline-block;
 	width: 8px;
-	height: 14px;
+	height: 16px;
 	background-color: var(--term-accent);
 	vertical-align: middle;
-	margin-left: 2px;
+	margin-left: 4px;
 	animation: terminal-blink 1s steps(2, start) infinite;
 }
 
