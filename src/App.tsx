@@ -1,19 +1,19 @@
 import { useState, useEffect } from 'react';
-import { 
-	Mail, 
-	Phone, 
-	MapPin, 
-	Terminal as TerminalIcon, 
-	Cpu, 
-	Briefcase, 
-	GraduationCap, 
-	Globe, 
-	Award, 
-	Building2, 
-	Calendar, 
-	ShieldCheck, 
-	CheckCircle2, 
-	ExternalLink 
+import {
+	Mail,
+	Phone,
+	MapPin,
+	Terminal as TerminalIcon,
+	Cpu,
+	Briefcase,
+	GraduationCap,
+	Globe,
+	Award,
+	Building2,
+	Calendar,
+	ShieldCheck,
+	CheckCircle2,
+	ExternalLink
 } from 'lucide-react';
 import { PORTFOLIO_DATA } from './data';
 import { TypewriterText } from './components/TypewriterText';
@@ -58,23 +58,19 @@ export function App() {
 
 	return (
 		<div className="min-h-screen bg-[var(--term-bg)] text-[var(--term-text)] bg-grid-pattern relative selection:bg-[var(--term-accent)] selection:text-black flex flex-col justify-between font-mono">
-			
+
 			{/* ========================================================================= */}
 			{/* HEADER: Identidad, Datos Generales y Banner ASCII estilo JCubic Terminal  */}
 			{/* ========================================================================= */}
 			<header className="border-b border-[var(--term-border)] bg-black/95 sticky top-0 z-40 backdrop-blur-md">
-				
+
 				{/* Barra superior de terminal del sistema */}
 				<div className="border-b border-[var(--term-border)]/60 bg-[#050806] px-4 py-1.5 text-xs flex flex-wrap items-center justify-between gap-3">
 					<div className="flex items-center gap-2">
 						<span className="section-diagnostic-badge border-green-500/40 text-[var(--term-accent)]">
 							[HEADER: ROOT]
 						</span>
-						<span className="text-[var(--term-dim)]">// HOST: erik-sanchez-thinkpad // OS: Linux 6.8 x86_64</span>
-					</div>
-					<div className="flex items-center gap-2 text-xs">
-						<span className="inline-block w-2 h-2 rounded-full bg-[var(--term-accent)] animate-ping"></span>
-						<span className="text-[var(--term-accent)] font-semibold">{PORTFOLIO_DATA.personal.status}</span>
+						<span className="text-[var(--term-dim)]">// HOST: egsanchezl // OS: Linux 6.8 x86_64</span>
 					</div>
 				</div>
 
@@ -82,11 +78,7 @@ export function App() {
 				<div className="container-layout py-4 lg:py-6">
 					<div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
 						<div>
-							<div className="text-xs text-[var(--term-dim)] mb-1 flex items-center gap-1">
-								<span className="text-[var(--term-accent)] font-bold">root@sys:</span>
-								<span className="text-blue-400">~/candidato</span>
-								<span className="text-[var(--term-dim)]">$ cat bio.txt</span>
-							</div>
+
 
 							<h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-terminal-glow flex items-center">
 								{PORTFOLIO_DATA.personal.name}
@@ -114,23 +106,15 @@ export function App() {
 			{/* ========================================================================= */}
 			<div className="container-layout flex-1 py-8 lg:py-10 w-full">
 				<div className="lg:flex lg:justify-between lg:gap-8 xl:gap-12">
-					
+
 					{/* COLUMNA IZQUIERDA: Terminal Shell Interactiva y Menú de Secciones */}
 					<aside className="lg:sticky lg:top-36 lg:max-h-[calc(100vh-10rem)] lg:w-[42%] lg:flex lg:flex-col lg:justify-between pb-8 lg:pb-0 mb-8 lg:mb-0 border-b lg:border-b-0 border-[var(--term-border)]">
 						<div className="space-y-6">
 							<div className="flex items-center justify-between">
-								<span className="section-diagnostic-badge text-[var(--term-accent)] border-green-500/30">
-									[SECTION: TERMINAL &amp; MENU]
-								</span>
-								<span className="text-[11px] text-[var(--term-dim)]">// CLI REPL</span>
+
 							</div>
 
-							<p className="text-xs leading-relaxed text-[var(--term-dim)]">
-								{PORTFOLIO_DATA.personal.tagline}
-							</p>
 
-							{/* Terminal interactiva de comandos al estilo jcubic */}
-							<InteractiveTerminal onNavigate={scrollToSection} />
 
 							{/* Menú de navegación interactivo del CV */}
 							<nav className="space-y-1 pt-2">
@@ -155,9 +139,8 @@ export function App() {
 										className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
 									>
 										<span className="nav-prompt">&gt;</span>
-										<span className={`nav-text text-xs tracking-wider ${
-											activeSection === item.id ? 'text-terminal-glow font-bold' : 'text-[var(--term-dim)]'
-										}`}>
+										<span className={`nav-text text-xs tracking-wider ${activeSection === item.id ? 'text-terminal-glow font-bold' : 'text-[var(--term-dim)]'
+											}`}>
 											{item.label}
 										</span>
 									</a>
@@ -165,32 +148,7 @@ export function App() {
 							</nav>
 						</div>
 
-						{/* Enlaces a perfiles externos */}
-						<div className="pt-4 border-t border-[var(--term-border)] mt-6 flex items-center gap-3">
-							<a
-								href="https://github.com"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="GitHub"
-								className="p-2 border border-[var(--term-border)] rounded hover:border-[var(--term-accent)] hover:text-[var(--term-accent)] transition-all bg-[#050806]"
-								title="GitHub"
-							>
-								<GithubIcon size={16} />
-							</a>
-							<a
-								href="https://linkedin.com"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label="LinkedIn"
-								className="p-2 border border-[var(--term-border)] rounded hover:border-[var(--term-accent)] hover:text-[var(--term-accent)] transition-all bg-[#050806]"
-								title="LinkedIn"
-							>
-								<LinkedinIcon size={16} />
-							</a>
-							<span className="text-[11px] text-[var(--term-dim)] ml-1">
-								// CDMX, MÉXICO
-							</span>
-						</div>
+
 					</aside>
 
 					{/* COLUMNA DERECHA: Secciones del Currículum (01 al 05) */}
@@ -230,7 +188,7 @@ export function App() {
 
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
 								{PORTFOLIO_DATA.technicalSkills.map((category, idx) => (
-									<div 
+									<div
 										key={idx}
 										className="p-3.5 border border-[var(--term-border)] bg-[#050806] rounded hover:border-[var(--term-accent)] transition-all"
 									>
@@ -239,7 +197,7 @@ export function App() {
 										</div>
 										<div className="flex flex-wrap gap-1.5">
 											{category.items.map((item, itemIdx) => (
-												<span 
+												<span
 													key={itemIdx}
 													className="tag-badge"
 												>
@@ -265,7 +223,7 @@ export function App() {
 
 							<div className="space-y-4">
 								{PORTFOLIO_DATA.experiences.map((exp, index) => (
-									<div 
+									<div
 										key={index}
 										className="card-terminal group"
 									>
@@ -321,7 +279,7 @@ export function App() {
 							<div className="p-4 border border-[var(--term-border)] bg-[#050806] rounded">
 								<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs">
 									{PORTFOLIO_DATA.competencies.map((comp, idx) => (
-										<div 
+										<div
 											key={idx}
 											className="flex items-center gap-2 p-2 bg-black/60 border border-[var(--term-border)] rounded text-[var(--term-glow)]"
 										>
@@ -351,7 +309,7 @@ export function App() {
 										// ESTUDIOS ACADÉMICOS
 									</h4>
 									{PORTFOLIO_DATA.education.map((edu, idx) => (
-										<div 
+										<div
 											key={idx}
 											className="p-3.5 border border-[var(--term-border)] bg-[#050806] rounded"
 										>
@@ -423,7 +381,7 @@ export function App() {
 						<p className="text-xs sm:text-sm text-[var(--term-dim)] leading-relaxed max-w-3xl">
 							Disponible para colaborar en arquitecturas de backend resilientes (Java, Spring Boot, Microservicios), integración de APIs y desarrollo full-stack. Contáctame por correo o llamada telefónica directa:
 						</p>
-						
+
 						<div className="pt-2 flex flex-wrap gap-3">
 							<a
 								href={`mailto:${PORTFOLIO_DATA.personal.email}`}

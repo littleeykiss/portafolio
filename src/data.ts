@@ -25,10 +25,10 @@ export const PORTFOLIO_DATA = {
 		shortName: "Erik Sánchez",
 		title: "Ingeniero en Sistemas // Desarrollador Full-Stack",
 		tagline: "+6 años especializándome en backend con Java, Spring Boot y microservicios, integrando frontend moderno, sistemas bancarios de misión crítica y bases de datos robustas.",
-		phone: "5652162711",
+		phone: "(56)52162711",
 		email: "ersalo123@gmail.com",
 		location: "Ciudad de México, México",
-		status: "ONLINE // DISPONIBLE PARA NUEVOS RETOS",
+		status: "ONLINE ",
 		about: [
 			"Ingeniero en Sistemas con más de 6 años de experiencia en desarrollo Full-Stack. Especializado en arquitecturas de backend resilientes utilizando Java, Spring Boot y microservicios, complementado con interfaces frontend ágiles y modernas (React, Angular, VueJS).",
 			"Cuento con sólida trayectoria en el diseño e implementación de APIs RESTful de alto rendimiento (Apigee, TIBCO), integración directa con sistemas bancarios, hardening y seguridad de aplicaciones con SonarQube, y optimización avanzada de bases de datos relacionales (Oracle, PostgreSQL).",
