@@ -19,7 +19,7 @@ import {
 } from 'lucide-react';
 import { PORTFOLIO_DATA } from './data';
 import { TypewriterText } from './components/TypewriterText';
-import { GithubIcon, LinkedinIcon } from './components/SocialIcons';
+
 import './App.css';
 
 type SectionId = 'about' | 'skills' | 'experience' | 'competencies' | 'education' | 'contact' | 'privacy';
